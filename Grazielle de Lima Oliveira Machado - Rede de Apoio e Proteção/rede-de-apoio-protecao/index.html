@@ -1,0 +1,358 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<title>Rede de Apoio e Proteção</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Poppins:wght@400;500;600;700;800&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="js/tailwind-config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+
+
+<header class="bar">
+  <div class="brand">PROTEÇÃO<b>.</b></div>
+  <div class="sep"></div>
+  <div class="deck" id="deckTitle">Violência contra a Mulher: Rede de Apoio e Proteção</div>
+  <div class="count" id="count">1 / 10</div>
+  <button class="ui-btn" id="copyBtn" type="button"><i class="fa-solid fa-link"></i><span class="lbl">Copiar link</span></button>
+  <button class="ui-btn primary" id="playBtn" type="button"><i class="fa-solid fa-play"></i><span class="lbl">Apresentar</span></button>
+</header>
+
+<main id="reader">
+
+<!-- ===================== 1. CAPA ===================== -->
+<div class="frame" tabindex="-1"><div class="slide" style="background:#F8F9FA">
+  <div class="absolute inset-0 flex flex-col justify-between" style="padding:60px 80px">
+    <header class="relative z-20 border-l-4 border-accent pl-4">
+      <h4 class="font-heading text-3xl leading-none font-extrabold tracking-tighter text-black">PROTEÇÃO<span class="text-accent">.</span></h4>
+      <p class="mt-1 text-[10px] uppercase font-semibold text-secondaryText" style="letter-spacing:.4em">Núcleo de Apoio Social</p>
+    </header>
+    <div class="absolute left-0 w-full flex items-center justify-center z-10"
+         style="top:50%;height:320px;transform:translateY(-55%);background:#5D3B95;clip-path:polygon(0 15%,100% 0%,100% 85%,0% 100%)">
+      <div class="text-center px-10">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <div class="h-px w-12 bg-purple-300 opacity-60"></div>
+          <p class="text-sm font-medium uppercase" style="color:#e9d5ff;letter-spacing:.4em">17 de Outubro de 2026</p>
+          <div class="h-px w-12 bg-purple-300 opacity-60"></div>
+        </div>
+        <h1 class="font-heading text-white font-extrabold" style="font-size:2.85rem;letter-spacing:-.025em;line-height:1.2">VIOLÊNCIA CONTRA A MULHER:<br>REDE DE APOIO E PROTEÇÃO</h1>
+      </div>
+    </div>
+    <footer class="relative z-20 flex flex-col items-center">
+      <p class="max-w-xl text-center mb-12 italic font-light text-secondaryText" style="font-size:1.05rem">"Fortalecendo caminhos para a dignidade, acolhimento integral e garantia incondicional dos direitos humanos fundamentais."</p>
+      <div class="w-full flex justify-between items-end border-t border-gray-200 pt-8">
+        <div>
+          <p class="text-[10px] uppercase font-bold tracking-widest" style="color:#999">Coordenação</p>
+          <h5 class="font-heading font-bold text-base">Rede de Atendimento à Mulher</h5>
+        </div>
+        <div class="text-right">
+          <p class="font-heading font-bold text-sm">DIREITOS &amp; CIDADANIA</p>
+          <p class="text-xs" style="color:#999">www.protecaomulher.org.br</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div></div>
+
+<!-- ===================== 2. SUMÁRIO ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <main class="w-full h-[720px] flex p-10 gap-8">
+    <div class="w-1/3 h-full rounded-[30px] bg-accentPale flex flex-col justify-end p-10 text-accent">
+      <p class="text-sm font-bold uppercase tracking-[0.2em] mb-4">Visão Geral</p>
+      <h1 class="text-5xl font-bold leading-tight mb-6">Sumário de<br>Conteúdo</h1>
+      <div class="w-12 h-1 bg-accent rounded-full mb-4"></div>
+      <p class="text-xs font-medium text-secondaryText leading-relaxed mb-4">Violência contra a Mulher:<br>Rede de Apoio e Proteção</p>
+      <div class="p-4 bg-white/50 rounded-xl border border-accent/20">
+        <p class="text-[10px] font-bold uppercase mb-1 italic">Mensagem Final</p>
+        <p class="text-[11px] leading-snug text-primaryText font-semibold">Não se cale. Denuncie e rompa o ciclo da violência. Você não está sozinha nesta jornada!</p>
+      </div>
+    </div>
+    <div class="w-2/3 h-full grid grid-cols-2 gap-3 py-2" id="toc"></div>
+  </main>
+</div></div>
+
+<!-- ===================== 3. ACOLHIMENTO ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <section class="px-12 mb-8 pt-12 flex justify-between items-end">
+    <div>
+      <span class="text-secondaryText text-xs font-semibold uppercase tracking-wider block mb-1">Violência contra a Mulher: Rede de Apoio e Proteção</span>
+      <h1 class="text-5xl font-bold tracking-tight mb-2">Acolhimento e Segurança Imediata</h1>
+      <div class="h-1 w-20 bg-accent rounded-full"></div>
+    </div>
+    <p class="max-w-md text-right text-secondaryText text-sm leading-relaxed">
+      <span class="src" tabindex="0" data-href="https://www.gov.br/mj/pt-br/assuntos/noticias-1/entram-em-vigor-medidas-de-protecao-as-mulheres" data-sum="O acolhimento imediato assegura protocolos humanizados, medidas protetivas urgentes e suporte jurídico, além de casas de acolhimento seguro.">O acolhimento imediato assegura protocolos humanizados, medidas protetivas urgentes e suporte jurídico, preservando a integridade física e o rompimento do ciclo de violência.</span>
+    </p>
+  </section>
+  <main class="px-12 grid grid-cols-4 gap-6 h-[480px]" id="s3grid"></main>
+</div></div>
+
+<!-- ===================== 4. SAÚDE MENTAL ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <div class="w-full h-full flex flex-col px-14 py-10">
+    <div class="flex justify-between items-end mb-8 pt-2">
+      <div class="w-2/3">
+        <p class="text-xs uppercase tracking-widest text-accent font-semibold mb-1">Violência contra a Mulher: Rede de Apoio e Proteção</p>
+        <h1 class="text-4xl font-bold tracking-tight leading-tight">Saúde Mental e Apoio Psicológico via SUS</h1>
+      </div>
+      <p class="w-1/3 text-right pb-1 text-secondaryText text-sm leading-relaxed">Acesso facilitado e suporte psicológico contínuo<br>integrado à rede pública de saúde.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-6 h-[500px]" id="s4grid"></div>
+  </div>
+</div></div>
+
+<!-- ===================== 5. DEPENDÊNCIA EMOCIONAL ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <main class="h-[720px] p-12 pt-14 grid grid-cols-12 gap-8 items-start">
+    <div class="col-span-4 h-[608px] rounded-[30px] overflow-hidden border border-divider">
+      <div class="img-slot"><div class="ph"><i class="fa-solid fa-hand-holding-heart" style="font-size:72px"></i><p class="text-sm font-bold tracking-widest uppercase">Apoio e acolhimento</p></div></div>
+    </div>
+    <div class="col-span-8 flex flex-col h-[608px]">
+      <div class="mb-6">
+        <h1 class="text-4xl font-bold leading-tight tracking-tight mb-3">Superação da <span class="text-accent">Dependência Emocional</span></h1>
+        <p class="text-secondaryText text-base max-w-2xl leading-relaxed"><span class="src" tabindex="0" data-href="https://lucianaperfetto.com.br/blog/e-possivel-superar-a-dependencia-emocional-depois-dos-40" data-sum="O acolhimento psicológico fortalece a autoestima e a regulação emocional.">O acolhimento psicológico fortalece a autoestima e a regulação emocional</span>, permitindo a reconstrução integral da mulher para romper vínculos abusivos com segurança.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 flex-grow" id="s5grid"></div>
+    </div>
+  </main>
+</div></div>
+
+<!-- ===================== 6. CAMPANHAS ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <div class="flex flex-col h-full px-12 pt-12 pb-8">
+    <div class="flex justify-between items-end mb-6">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-wider text-accent mb-1 block">Violência contra a Mulher: Rede de Apoio e Proteção</span>
+        <h1 class="text-4xl font-bold tracking-tight">Conscientização e Campanhas Nacionais</h1>
+      </div>
+      <p class="max-w-md text-right text-secondaryText text-base leading-snug">Mobilização conjunta e ações institucionais para proteção e combate à violência doméstica no esporte.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-6 flex-1 pb-2">
+      <div class="flex flex-col gap-6">
+        <div class="bg-cardBg rounded-2xl p-6 border border-divider flex-1 flex flex-col justify-between">
+          <div>
+            <h2 class="text-lg font-bold mb-2">Parceria Institucional</h2>
+            <p class="text-xs text-secondaryText mb-4 leading-relaxed"><span class="src" tabindex="0" data-href="https://www.cbf.com.br/a-cbf/noticias/por-dentro-cbf-noticias/a/cbf-e-ministerios-do-esporte-e-das-mulheres-lancam-campanha-de-combate-a-violencia-contra-mulher-no-brasil-x-argentina-feminino" data-sum="Ações conjuntas entre a CBF e os Ministérios do Esporte e das Mulheres no clássico Brasil x Argentina.">Ações conjuntas entre CBF e Ministérios</span> fortalecem a visibilidade das políticas de enfrentamento e acolhimento em âmbito nacional.</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="w-28 h-28" id="c6a"></div>
+            <div class="flex flex-col gap-2 w-44 text-xs">
+              <div class="flex justify-between items-center"><div class="flex items-center gap-2"><i class="block shrink-0 w-2 h-2 rounded-full bg-accent"></i><p class="text-secondaryText bg-gray-100 px-2 py-0.5 rounded">CBF</p></div><b>Esporte</b></div>
+              <div class="flex justify-between items-center"><div class="flex items-center gap-2"><i class="block shrink-0 w-2 h-2 rounded-full bg-accentSoft"></i><p class="text-secondaryText bg-gray-100 px-2 py-0.5 rounded">M. Mulheres</p></div><b>Proteção</b></div>
+              <div class="flex justify-between items-center"><div class="flex items-center gap-2"><i class="block shrink-0 w-2 h-2 rounded-full bg-accentPale"></i><p class="text-secondaryText bg-gray-100 px-2 py-0.5 rounded">M. Esporte</p></div><b>Inclusão</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-cardBg rounded-2xl p-6 border border-divider flex-1 flex flex-col justify-between">
+          <div><h2 class="text-lg font-bold mb-1">Canais de Atendimento</h2><p class="text-xs text-secondaryText mb-3">Rede de denúncia ativa nos estádios</p></div>
+          <div class="flex items-center justify-between">
+            <div class="w-28 h-28" id="c6b"></div>
+            <div class="flex flex-col gap-3 w-44">
+              <div class="flex items-center justify-between border-b border-divider pb-2"><div class="flex items-center gap-2"><i class="block shrink-0 w-2.5 h-2.5 rounded-full bg-accent"></i><p class="text-xs text-secondaryText">Ligue 180</p></div><div class="flex items-center gap-1.5"><p class="text-lg font-bold">Nacional</p><i class="fa-solid fa-phone text-iconColor text-xs"></i></div></div>
+              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><i class="block shrink-0 w-2.5 h-2.5 rounded-full bg-accentSoft"></i><p class="text-xs text-secondaryText">Disque 190</p></div><div class="flex items-center gap-1.5"><p class="text-lg font-bold">Urgência</p><i class="fa-solid fa-shield text-iconColor text-xs"></i></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-cardBg rounded-2xl p-6 border border-divider flex flex-col justify-between">
+        <div><h2 class="text-lg font-bold mb-1">Plataforma em Eventos Esportivos</h2><p class="text-xs text-secondaryText mb-2">Engajamento de público e abrangência das mensagens de prevenção</p></div>
+        <div class="flex-1 my-2"><div class="w-full h-full" id="c6c" style="min-height:270px"></div></div>
+        <p class="pt-3 border-t border-divider text-xs text-secondaryText leading-relaxed">Uso estratégico de jogos de alta relevância como espaço fundamental de comunicação direta com torcedores e torcedoras.</p>
+      </div>
+      <div class="flex flex-col gap-6">
+        <div class="bg-cardBg rounded-2xl p-6 border border-divider flex-1 flex flex-col justify-center">
+          <h2 class="text-lg font-bold mb-4">Ação em Destaque</h2>
+          <div class="flex items-center justify-between mb-3 text-secondaryText text-xs"><div class="flex items-center gap-2"><i class="fa-solid fa-bullhorn text-iconColor"></i><p>Evento Mobilizador</p></div><p>Divulgação Oficial</p></div>
+          <div class="flex items-baseline justify-between border-t border-divider pt-3">
+            <h3 class="text-xl font-bold"><span class="src" tabindex="0" data-href="https://www.cbf.com.br/a-cbf/noticias/por-dentro-cbf-noticias/a/cbf-e-ministerios-do-esporte-e-das-mulheres-lancam-campanha-de-combate-a-violencia-contra-mulher-no-brasil-x-argentina-feminino" data-sum="Campanha lançada pela CBF em clássico feminino.">Brasil x Argentina</span></h3>
+            <h3 class="text-base font-bold text-accent">Feminino</h3>
+          </div>
+        </div>
+        <div class="bg-cardBg rounded-2xl p-6 border border-divider flex-1 flex flex-col justify-between">
+          <div>
+            <h2 class="text-lg font-bold mb-2">Educação e Conscientização</h2>
+            <p class="text-xs text-secondaryText mb-3 leading-relaxed"><span class="src" tabindex="0" data-href="https://www.cbf.com.br/" data-sum="Divulgação de canais oficiais e campanhas institucionais no portal da CBF.">Divulgação de canais oficiais de apoio e denúncia</span> para transformação social através da informação.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-3 pt-2 border-t border-divider">
+            <div><p class="text-[11px] text-secondaryText bg-gray-100 px-2 py-0.5 rounded w-fit mb-1 font-medium">Apoio</p><p class="text-sm font-bold">Rede Integrada</p></div>
+            <div><p class="text-[11px] text-white bg-accent px-2 py-0.5 rounded w-fit mb-1 font-medium">Foco</p><p class="text-sm font-bold">Combate</p></div>
+            <div><p class="text-[11px] text-secondaryText bg-gray-100 px-2 py-0.5 rounded w-fit mb-1 font-medium">Sociedade</p><p class="text-sm font-bold">Conscientização</p></div>
+            <div><p class="text-[11px] text-secondaryText bg-gray-100 px-2 py-0.5 rounded w-fit mb-1 font-medium">Estádios</p><p class="text-sm font-bold">Visibilidade</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ===================== 7. DEFESA PESSOAL ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <main class="h-full p-12 grid grid-cols-12 gap-12 items-center">
+    <div class="col-span-5 h-full flex flex-col justify-center">
+      <h1 class="text-5xl font-bold mb-8 leading-tight">Defesa Pessoal &amp;<br>Proteção Ativa</h1>
+      <div class="h-[300px] w-full bg-cardBg rounded-[30px] p-6 relative overflow-hidden border border-divider">
+        <div class="w-full h-full rounded-[20px] overflow-hidden">
+          <div class="img-slot"><div class="ph"><i class="fa-solid fa-hand-fist" style="font-size:64px"></i><p class="text-sm font-bold tracking-widest uppercase">Treinamento</p></div></div>
+        </div>
+        <div class="absolute bottom-8 left-8 bg-cardBg p-4 rounded-xl border border-divider">
+          <p class="text-accent font-bold text-base">Rede de Apoio</p>
+          <p class="text-xl font-bold">Segurança Feminina</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-7 flex flex-col gap-6 justify-center h-full py-8">
+      <div class="bg-cardBg rounded-[24px] p-8 border border-divider flex gap-6">
+        <div class="mt-1 h-12 w-12 shrink-0 rounded-full bg-accent flex items-center justify-center"><i class="fa-solid fa-shield-halved text-white text-xl"></i></div>
+        <div>
+          <h3 class="text-2xl font-bold mb-3">Prevenção e Neutralização</h3>
+          <p class="text-secondaryText text-lg leading-relaxed mb-4"><span class="src" tabindex="0" data-href="https://top5best.com/kit-de-defensa-personal-para-mujeres" data-sum="Aulas de defesa pessoal capacitam mulheres em risco iminente, focando em prevenção e neutralização de agressões.">Aulas de defesa pessoal capacitam mulheres em risco iminente, focando em prevenção e neutralização de agressões</span> por meio de técnicas diretas e respostas táticas assertivas.</p>
+          <div class="flex gap-3"><span class="px-3 py-1 bg-accentPale text-accent text-sm font-medium rounded-full">Prevenção Rápida</span><span class="px-3 py-1 bg-gray-100 text-secondaryText text-sm font-medium rounded-full">Risco Iminente</span></div>
+        </div>
+      </div>
+      <div class="bg-cardBg rounded-[24px] p-8 border border-divider flex gap-6">
+        <div class="mt-1 h-12 w-12 shrink-0 rounded-full bg-accent flex items-center justify-center"><i class="fa-solid fa-person-rays text-white text-xl"></i></div>
+        <div>
+          <h3 class="text-2xl font-bold mb-3">Autoconfiança e Prontidão</h3>
+          <p class="text-secondaryText text-lg leading-relaxed mb-4">O treinamento continuado promove a segurança integral, <span class="src" tabindex="0" data-href="https://www.gov.br/mj/pt-br/assuntos/noticias-1/entram-em-vigor-medidas-de-protecao-as-mulheres" data-sum="Aumento da autoconfiança e da reação tática em conformidade com as diretrizes de proteção ativa.">elevando a autoconfiança e a reação tática</span> das mulheres frente a possíveis tentativas de violência.</p>
+          <div class="flex gap-3"><span class="px-3 py-1 bg-accentPale text-accent text-sm font-medium rounded-full">Capacidade de Reação</span><span class="px-3 py-1 bg-gray-100 text-secondaryText text-sm font-medium rounded-full">Empoderamento</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div></div>
+
+<!-- ===================== 8. REINSERÇÃO ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <div class="h-full" style="padding:56px 64px 48px">
+    <div class="grid h-full items-stretch" style="grid-template-columns:460px 1fr;gap:48px">
+      <div class="flex flex-col justify-between gap-5">
+        <h1 class="s8-title font-bold">Reinserção Social e<br><span class="text-accent">Autonomia Financeira</span></h1>
+        <div class="bg-cardBg rounded-[20px] border border-divider" style="padding:24px 28px">
+          <h3 class="text-[17px] font-bold mb-4">Pilares da Emancipação</h3>
+          <div class="grid grid-cols-3 gap-4 mb-5">
+            <div class="flex flex-col gap-1.5"><i class="fa-solid fa-graduation-cap text-accent text-lg"></i><h4 class="text-lg font-bold">Capacitação</h4><p class="text-xs text-secondaryText leading-snug">Qualificação prática e técnica</p></div>
+            <div class="flex flex-col gap-1.5"><i class="fa-solid fa-handshake text-accent text-lg"></i><h4 class="text-lg font-bold">Parcerias</h4><p class="text-xs text-secondaryText leading-snug">Alianças com setor privado</p></div>
+            <div class="flex flex-col gap-1.5"><i class="fa-solid fa-shield-heart text-accent text-lg"></i><h4 class="text-lg font-bold">Proteção</h4><p class="text-xs text-secondaryText leading-snug">Respaldo social contínuo</p></div>
+          </div>
+          <div class="h-px bg-divider mb-5"></div>
+          <h3 class="text-[17px] font-bold mb-4">Compromisso Institucional</h3>
+          <div class="flex gap-5">
+            <div class="flex items-center gap-3 flex-1"><div class="w-10 h-10 shrink-0 rounded-lg bg-accentPale text-accent flex items-center justify-center"><i class="fa-solid fa-briefcase"></i></div><div><p class="text-xs text-secondaryText">Foco de Ação</p><h4 class="text-[15px] font-bold">Vagas Exclusivas</h4></div></div>
+            <div class="flex items-center gap-3 flex-1"><div class="w-10 h-10 shrink-0 rounded-lg bg-accentPale text-accent flex items-center justify-center"><i class="fa-solid fa-seedling"></i></div><div><p class="text-xs text-secondaryText">Objetivo Final</p><h4 class="text-[15px] font-bold">Independência</h4></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center" style="gap:18px" id="s8list"></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ===================== 9. CANAIS DE EMERGÊNCIA ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <section class="px-12 mb-6 pt-12 flex justify-between items-end">
+    <div>
+      <span class="text-secondaryText text-xs font-semibold uppercase tracking-wider block mb-1">Violência contra a Mulher: Rede de Proteção</span>
+      <h1 class="text-5xl font-bold tracking-tight mb-2">Canais de Apoio e Emergência</h1>
+      <div class="h-1 w-20 bg-accent rounded-full"></div>
+    </div>
+    <p class="max-w-md text-right text-secondaryText text-sm leading-relaxed italic">"Romper o ciclo da violência começa com uma ligação. Você não está sozinha: uma rede especializada está pronta para proteger você."</p>
+  </section>
+  <main class="px-12 grid grid-cols-3 gap-6 h-[460px]">
+    <div class="space-y-4">
+      <div class="bg-cardBg rounded-xl p-5 border border-divider shadow-sm">
+        <div class="flex items-center gap-3 mb-3"><div class="bg-accent p-2 rounded-lg"><i class="fa-solid fa-phone-volume text-white"></i></div><h2 class="text-lg font-bold">Resposta Imediata</h2></div>
+        <div class="space-y-4">
+          <div class="border-l-4 border-accent pl-3"><div class="flex justify-between items-center"><b class="text-accent text-xl">190</b><span class="text-[10px] font-bold bg-accentPale px-2 py-0.5 rounded text-accent">POLÍCIA</span></div><p class="text-secondaryText text-xs mt-1">Polícia Militar: emergências e crimes acontecendo agora.</p></div>
+          <div class="border-l-4 border-accentSoft pl-3"><div class="flex justify-between items-center"><b class="text-accentSoft text-xl">192</b><span class="text-[10px] font-bold bg-gray-100 px-2 py-0.5 rounded text-secondaryText">SAMU</span></div><p class="text-secondaryText text-xs mt-1">Urgência médica: atendimento imediato a lesões físicas ou traumas.</p></div>
+        </div>
+      </div>
+      <div class="bg-accent rounded-xl p-5 text-white">
+        <div class="flex items-center gap-3 mb-2"><i class="fa-solid fa-headset text-2xl"></i><h2 class="text-lg font-bold">Ligue 180</h2></div>
+        <p class="text-xs opacity-90 leading-relaxed">Central de Atendimento à Mulher: serviço nacional e gratuito de orientação sobre direitos e recebimento de denúncias, 24 horas.</p>
+      </div>
+    </div>
+    <div class="bg-cardBg rounded-xl p-5 border border-divider shadow-sm flex flex-col">
+      <div class="flex items-center gap-3 mb-4"><div class="bg-accentSoft p-2 rounded-lg"><i class="fa-solid fa-building-shield text-white"></i></div><h2 class="text-lg font-bold">Unidades Especializadas</h2></div>
+      <div class="flex-1 space-y-4">
+        <div><h3 class="text-sm font-bold flex items-center gap-2"><i class="fa-solid fa-gavel text-accent text-xs"></i> DEAM</h3><p class="text-secondaryText text-xs leading-snug mt-1">Delegacias Especializadas de Atendimento à Mulher: investigação especializada e pedido de medidas protetivas.</p></div>
+        <div><h3 class="text-sm font-bold flex items-center gap-2"><i class="fa-solid fa-house-user text-accent text-xs"></i> Casa da Mulher Brasileira</h3><p class="text-secondaryText text-xs leading-snug mt-1">Centro que reúne polícia, justiça, abrigo e apoio psicológico em um só lugar.</p></div>
+        <div><h3 class="text-sm font-bold flex items-center gap-2"><i class="fa-solid fa-hand-holding-heart text-accent text-xs"></i> CRAS / CREAS</h3><p class="text-secondaryText text-xs leading-snug mt-1">Centros de assistência social para acompanhamento familiar e garantia de direitos.</p></div>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div class="bg-cardBg rounded-xl p-5 border border-divider shadow-sm">
+        <h2 class="text-sm font-bold mb-3 uppercase tracking-tighter">Aplicativos e Ferramentas</h2>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-2 bg-bgMain rounded-lg"><i class="fa-solid fa-mobile-screen-button text-accent"></i><div><p class="text-xs font-bold">SOS Mulher</p><p class="text-[10px] text-secondaryText">Botão do pânico para medidas protetivas.</p></div></div>
+          <div class="flex items-center gap-3 p-2 bg-bgMain rounded-lg"><i class="fa-brands fa-whatsapp text-green-600"></i><div><p class="text-xs font-bold">PMMG / SMS da Polícia</p><p class="text-[10px] text-secondaryText">Canais de denúncia silenciosa.</p></div></div>
+        </div>
+      </div>
+      <div class="bg-cardBg rounded-xl p-5 border border-divider shadow-sm">
+        <p class="text-secondaryText text-[10px] font-bold uppercase mb-2">Impacto da Rede</p>
+        <div id="c9" class="w-full h-[120px]"></div>
+        <div class="mt-2 text-center"><p class="text-accent text-[11px] font-bold">Mais de 600 mil medidas protetivas</p><p class="text-secondaryText text-[10px]">Concedidas por ano via Lei Maria da Penha</p></div>
+      </div>
+    </div>
+  </main>
+  <footer class="absolute bottom-0 w-full px-12 py-6 bg-white border-t border-divider flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <div class="flex -space-x-2"><div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-[10px] border-2 border-white font-bold">180</div><div class="w-8 h-8 rounded-full bg-accentSoft flex items-center justify-center text-white text-[10px] border-2 border-white font-bold">190</div></div>
+      <p class="text-xs font-semibold">Denuncie a violência. Salve vidas. A lei está do seu lado.</p>
+    </div>
+    <div class="text-[10px] text-secondaryText uppercase tracking-widest font-bold">Rede de Apoio e Serviços de Emergência</div>
+  </footer>
+</div></div>
+
+<!-- ===================== 10. ENCERRAMENTO ===================== -->
+<div class="frame" tabindex="-1"><div class="slide">
+  <section class="px-12 pt-12 mb-6 flex justify-between items-end">
+    <div>
+      <span class="text-secondaryText text-xs font-semibold uppercase tracking-wider block mb-1">Violência contra a Mulher: Rede e Empoderamento</span>
+      <h1 class="text-5xl font-bold tracking-tight mb-2">Canais de Apoio e Proteção</h1>
+      <div class="h-1 w-20 bg-accent rounded-full"></div>
+    </div>
+    <p class="max-w-md text-right text-secondaryText text-sm leading-relaxed italic">"Você não está sozinha. Romper o ciclo da violência é o primeiro passo para a sua liberdade e dignidade. Denuncie, busque apoio e retome sua vida."</p>
+  </section>
+  <main class="px-12 grid grid-cols-12 gap-6 h-[460px]">
+    <div class="col-span-3 flex flex-col gap-4">
+      <div class="bg-accent text-white p-6 rounded-2xl flex flex-col items-center text-center shadow-lg"><i class="fa-solid fa-phone-volume text-4xl mb-3"></i><h3 class="text-lg font-bold">Ligue 180</h3><p class="text-xs opacity-90">Central de Atendimento à Mulher (24 horas)</p></div>
+      <div class="bg-cardBg border border-divider p-5 rounded-2xl flex items-center gap-4"><div class="bg-accentPale p-3 rounded-full"><i class="fa-solid fa-shield-halved text-accent text-xl"></i></div><div><h4 class="font-bold text-lg">190</h4><p class="text-secondaryText text-xs">Polícia Militar (emergência)</p></div></div>
+      <div class="bg-cardBg border border-divider p-5 rounded-2xl flex items-center gap-4"><div class="bg-accentPale p-3 rounded-full"><i class="fa-solid fa-truck-medical text-accent text-xl"></i></div><div><h4 class="font-bold text-lg">192</h4><p class="text-secondaryText text-xs">SAMU (urgência médica)</p></div></div>
+    </div>
+    <div class="col-span-6 grid grid-cols-2 gap-4" id="s10cards"></div>
+    <div class="col-span-3 bg-cardBg rounded-2xl p-6 border border-divider flex flex-col">
+      <h3 class="text-sm font-bold uppercase mb-4 text-center">Impacto da Lei Maria da Penha</h3>
+      <div id="c10" class="w-full h-40 mb-4"></div>
+      <div class="space-y-3">
+        <div>
+          <span class="text-[10px] text-secondaryText uppercase font-semibold">Medidas protetivas de urgência</span>
+          <div class="flex items-center gap-2"><div class="h-2 w-full bg-accentPale rounded-full overflow-hidden"><div class="h-full bg-accent" style="width:88%"></div></div><span class="text-xs font-bold">88%</span></div>
+        </div>
+        <p class="bg-bgMain p-3 rounded-lg text-center text-[11px] text-secondaryText">O tempo médio de resposta às medidas protetivas caiu de forma significativa desde a atualização da lei.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="absolute bottom-0 w-full px-12 py-8 bg-white border-t border-divider flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white"><i class="fa-solid fa-ribbon text-xl"></i></div>
+      <div><p class="font-bold text-base leading-tight">A rede de proteção está aqui por você.</p><p class="text-secondaryText text-xs">Não sofra em silêncio. Rompa o ciclo hoje.</p></div>
+    </div>
+    <div class="flex gap-2"><span class="px-4 py-2 bg-accentPale text-accent rounded-full text-xs font-bold uppercase tracking-widest">Denuncie</span><span class="px-4 py-2 bg-accent text-white rounded-full text-xs font-bold uppercase tracking-widest">Busque Apoio</span></div>
+  </footer>
+</div></div>
+
+</main>
+
+<div id="hud">
+  <button type="button" id="hPrev" aria-label="Slide anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <span class="hc" id="hCount">1 / 10</span>
+  <button type="button" id="hNext" aria-label="Próximo slide"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="prog"><i id="hProg"></i></div>
+  <button type="button" id="hExit"><i class="fa-solid fa-xmark"></i> Sair</button>
+</div>
+<div id="tip" hidden></div>
+<div id="toast" hidden></div>
+<input type="file" id="imgPick" accept="image/*" hidden>
+
+<script src="js/script.js"></script>
+
+</body></html>

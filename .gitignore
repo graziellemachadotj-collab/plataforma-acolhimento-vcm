@@ -1,0 +1,9 @@
+# Nunca publicar
+.venv/
+__pycache__/
+.pytest_cache/
+plataforma.db
+.chave_dados
+_raw/
+*.db
+.env

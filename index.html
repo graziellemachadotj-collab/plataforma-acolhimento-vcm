@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Plataforma de Acolhimento, Orientação e Resposta Rápida no Combate à Violência Contra a Mulher — Projetão IA, AFAGO (turma manhã, 2026).">
+<title>Plataforma de Acolhimento | Combate à Violência Contra a Mulher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  Projetão IA · AFAGO · Turma manhã · Set 2026
+  Front-end: esqueleto original (Prof. Álvaro / Miguel) + conteúdo dos trabalhos da turma.
+  Imagens: Solange Maria Morais (Solafago) e Julia Maria Morais Cardoso — pasta img/.
+  Versão sem botões e números de WhatsApp.
+-->
+<link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+<div class="progresso" id="progresso"></div>
+<a class="skip" href="#sobre">Pular para o conteúdo</a>
+
+<!-- Saída rápida: abre um site neutro e substitui esta página no histórico (também com Esc duas vezes) -->
+<button class="saida" id="saida" title="Sair rapidamente deste site (Esc duas vezes)">Sair rápido ✕ <small>Esc Esc</small></button>
+
+<header id="header">
+  <nav class="wrap nav" aria-label="Principal">
+    <a href="#inicio" class="logo"><span class="marca" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7.5-4.6-9.6-9.3C.8 8.1 3 4 6.9 4c2.1 0 3.6 1.2 5.1 3 1.5-1.8 3-3 5.1-3C21 4 23.2 8.1 21.6 11.7 19.5 16.4 12 21 12 21z"/></svg></span>Plataforma de Acolhimento</a>
+    <button class="burger" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false" id="burger">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#orientacao">Orientação</a></li>
+      <li><a href="#chatbot">M.A.R.I.A.</a></li>
+      <li><a href="#tecnologia">Tecnologia</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#ajuda">Canais de ajuda</a></li>
+      <li><a href="#trabalhos">Trabalhos</a></li>
+      <li><a href="#equipe">Equipe</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+<!-- ========== CAPA (FOTO 1 · panorama) ========== -->
+<section class="capa" id="inicio">
+  <div class="capa-fundo" role="img" aria-label="Sala de acolhimento com um grupo de mulheres em roda de conversa"></div>
+  <div class="bolhas" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <span class="selo"><i></i> Projetão IA · AFAGO · 2026</span>
+    <h1><span class="pal">Você</span> <span class="pal" style="animation-delay:.15s">não</span> <span class="pal" style="animation-delay:.3s">está</span> <span class="pal" style="animation-delay:.45s"><em>sozinha.</em></span></h1>
+    <p class="sub">Acolhimento, orientação e resposta rápida para mulheres em situação de violência. Informação segura, sem cadastro e sem julgamentos.</p>
+    <div class="btns">
+      <a href="#chatbot" class="btn btn--pri">Conversar com a M.A.R.I.A. →</a>
+      <a href="#ajuda" class="btn btn--sec">Canais de ajuda</a>
+    </div>
+  </div>
+  <span class="rolar" aria-hidden="true"></span>
+</section>
+
+<div class="emerg" role="region" aria-label="Telefones de emergência">
+  <div class="wrap">
+    <span>Em perigo agora? <a class="tel" href="tel:190">Ligue <strong>190</strong></a></span>
+    <span>Central de Atendimento à Mulher <a class="tel" href="tel:180"><strong>180</strong></a> gratuito, sigiloso e 24h</span>
+  </div>
+</div>
+
+<!-- ========== SOBRE (FOTO 2 · roda de apoio) ========== -->
+<section id="sobre">
+  <div class="wrap duas">
+    <div class="rev">
+      <span class="kicker">Sobre o projeto</span>
+      <h2>Uma porta de entrada segura para pedir ajuda</h2>
+      <p class="lead" style="margin-bottom:8px">A plataforma reúne, em um só lugar, informação, escuta e caminhos de ajuda para mulheres em situação de violência doméstica. A orientação inicial não exige cadastro; a conta é opcional e serve apenas para o que precisa ser guardado com proteção.</p>
+      <ul class="principios">
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span><div><b>Segurança primeiro</b><span>Perigo imediato sempre vem antes de qualquer etapa.</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><div><b>Anonimato como padrão</b><span>Sem login para orientação e sem registrar dados pessoais em logs.</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></span><div><b>Autonomia da mulher</b><span>Oferecemos caminhos, nunca ordens. A decisão é sempre dela.</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l-6 6 6 6"/><path d="M3 12h13a5 5 0 0 1 0 10h-2"/></svg></span><div><b>Saída rápida</b><span>Um toque leva a um site neutro e substitui esta página no histórico.</span></div></li>
+      </ul>
+    </div>
+    <div class="foto-deco rev rev-d2">
+      <figure class="foto" style="aspect-ratio:4/5">
+        <img src="img/acolhimento.jpg" alt="Mulheres abraçadas em uma roda de apoio, em uma sala acolhedora" loading="lazy" style="object-position:55% 50%">
+        <figcaption>“Você não está sozinha”: proximidade, empatia e conexão no grupo de apoio.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NÚMEROS ========== -->
+<div class="numeros">
+  <div class="wrap grid">
+    <div class="num rev"><strong data-conta="6">0</strong><span>formas de violência explicadas</span></div>
+    <div class="num rev rev-d1"><strong data-conta="6">0</strong><span>frentes de trabalho integradas</span></div>
+    <div class="num rev rev-d2"><strong data-conta="12">0</strong><span>pessoas na equipe</span></div>
+    <div class="num rev rev-d3"><strong data-conta="24" data-suf="h">0</strong><span>atendimento do Ligue 180</span></div>
+  </div>
+</div>
+
+<!-- ========== ORIENTAÇÃO ========== -->
+<section id="orientacao" class="alt">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker">Orientação</span>
+      <h2>Conhecer para reconhecer</h2>
+      <p class="lead">A Lei Maria da Penha (Lei nº 11.340/2006, art. 7º) reconhece cinco formas de violência. A violência vicária, que usa pessoas queridas para atingir a mulher, também precisa ser nomeada. Escolha um tipo para saber mais.</p>
+    </div>
+    <div class="abas rev" role="tablist" id="abas"></div>
+    <div id="painel" role="tabpanel" aria-live="polite"></div>
+    <p class="nota">Uma mesma situação pode envolver mais de uma forma de violência. Reconhecer o que está acontecendo não é culpa de ninguém.</p>
+
+    <div class="duas" style="margin-top:80px">
+      <div class="foto-deco rev">
+        <figure class="foto" style="aspect-ratio:16/10">
+          <img src="img/sinais.jpg" alt="Cena noturna em uma sala: um homem grita com uma mulher sentada, ilustrando violência psicológica" loading="lazy">
+          <figcaption>Mesmo sem marcas no corpo, a violência psicológica causa sofrimento real.</figcaption>
+        </figure>
+      </div>
+      <div class="rev rev-d2">
+        <span class="kicker">Sinais de alerta</span>
+        <h2>Quando acender o alerta</h2>
+        <div class="cards" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div class="card"><h3>Medo constante</h3><p>Medo de contrariar o parceiro, sensação de culpa e perda de confiança em si mesma.</p></div>
+          <div class="card"><h3>Isolamento</h3><p>Afastamento de família e amigos, controle de roupas, redes sociais e amizades.</p></div>
+          <div class="card"><h3>Controle do dinheiro</h3><p>Sem acesso ao próprio salário ou cartão; documentos sempre com outra pessoa.</p></div>
+          <div class="card"><h3>Marcas e desculpas</h3><p>Lesões frequentes com explicações vagas. Lesões podem ser registradas em exame de corpo de delito.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="duas" style="margin-top:80px">
+      <div class="rev">
+        <span class="kicker">Seus direitos</span>
+        <h2>A lei garante proteção</h2>
+        <div class="cards" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div class="card"><div class="ic">🛡️</div><h3>Proteção imediata</h3><p>Em risco, a polícia (190) deve atender e proteger.</p></div>
+          <div class="card"><div class="ic">⚖️</div><h3>Medidas protetivas</h3><p>Podem afastar o agressor e incluir os filhos. O pedido pode ser feito na delegacia ou na Defensoria.</p></div>
+          <div class="card"><div class="ic">📄</div><h3>Assistência jurídica</h3><p>A Defensoria Pública orienta gratuitamente sobre guarda, pensão e separação.</p></div>
+          <div class="card"><div class="ic">💜</div><h3>Apoio psicológico</h3><p>Centros de referência (CRAM/CREAS) oferecem acolhimento e acompanhamento.</p></div>
+        </div>
+      </div>
+      <div class="foto-deco rev rev-d2">
+        <figure class="foto" style="aspect-ratio:2/1">
+          <img src="img/campanha.jpg" alt="Cartaz: Lei Maria da Penha, esclarecimento e informação. Uma mulher caminha em direção a uma casa de apoio." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CHATBOT M.A.R.I.A. ========== -->
+<section id="chatbot">
+  <div class="wrap duas">
+    <div class="rev">
+      <span class="kicker">Chatbot de apoio</span>
+      <h2>M.A.R.I.A.</h2>
+      <p class="lead" style="margin-bottom:18px"><b>Módulo de Acolhimento, Respeito e Informação à Assistida</b>, uma homenagem à Lei Maria da Penha. A M.A.R.I.A. escuta, ajuda a mulher a entender o que está vivendo e mostra caminhos de ajuda, sempre no tempo e do jeito dela.</p>
+      <div class="cards" style="grid-template-columns:1fr 1fr;gap:12px">
+        <div class="card"><h3>Acolher antes de orientar</h3><p>Uma pergunta por vez, sempre com permissão para mudar de assunto.</p></div>
+        <div class="card"><h3>Não revitimizar</h3><p>Não pede provas, não duvida do relato, não exige detalhes.</p></div>
+        <div class="card"><h3>Protocolo de emergência</h3><p>Sinais de risco desviam a conversa direto para 190 e 180.</p></div>
+        <div class="card"><h3>Nunca inventar</h3><p>Telefones e serviços só aparecem se forem confirmados.</p></div>
+      </div>
+    </div>
+    <div class="rev rev-d2">
+      <div class="chat" id="chat" aria-label="Demonstração da M.A.R.I.A.">
+        <div class="chat-topo"><span class="av">M</span><div>M.A.R.I.A.<small>Demonstração · nada é salvo</small></div></div>
+        <div class="chat-corpo" id="chat-corpo" aria-live="polite"></div>
+        <div class="opcoes" id="opcoes"></div>
+      </div>
+      <p class="aviso">Demonstração com respostas fixas, criada a partir do roteiro da equipe do chatbot. Não substitui atendimento psicológico, jurídico, policial ou médico. Em risco, ligue <b>190</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TECNOLOGIA (back-end) ========== -->
+<section id="tecnologia" class="alt">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker">Como funciona</span>
+      <h2>Back-end seguro, público e anônimo</h2>
+      <p class="lead">A arquitetura separa a descoberta pública (guias, sinais de alerta, busca de serviços) dos dados protegidos, que só existem se a usuária escolher criar uma conta.</p>
+    </div>
+    <div class="fluxo">
+      <div class="passo rev"><h3>Acesso sem barreiras</h3><p>Guias, autoavaliação e busca de serviços sem cadastro ou login.</p></div>
+      <div class="passo rev rev-d1"><h3>Busca por proximidade</h3><p>PostGIS encontra delegacias da mulher, CREAS e Defensoria por raio ou CEP, sem guardar o endereço.</p></div>
+      <div class="passo rev rev-d2"><h3>Conta opcional</h3><p>Só para contatos de confiança, diário de evidências cifrado e alertas consentidos.</p></div>
+      <div class="passo rev rev-d3"><h3>Privacidade por concepção</h3><p>Sem IP nos logs, relatos cifrados, localização aproximada nos alertas e saída rápida.</p></div>
+    </div>
+    <div class="stack rev"><span>Python · FastAPI</span><span>PostgreSQL</span><span>PostGIS · GEOGRAPHY(Point, 4326)</span><span>Índice GiST</span><span>HTML · CSS · JS responsivo</span></div>
+
+    <!-- Teste ao vivo da API (back-end da Dayene e da Jessica) -->
+    <div class="api-teste rev" id="api-teste">
+      <div class="api-topo">
+        <div>
+          <h3>Testar a API ao vivo</h3>
+          <p>Busque serviços de apoio pelo CEP. O CEP é usado só nesta consulta e não é guardado.</p>
+        </div>
+        <span class="api-status" id="api-status"><i></i><b>Verificando…</b></span>
+      </div>
+      <form class="api-form" id="api-form">
+        <label for="api-cep" class="sr">CEP</label>
+        <input id="api-cep" inputmode="numeric" autocomplete="off" placeholder="CEP, ex.: 02310-000" maxlength="9" required>
+        <select id="api-tipo" aria-label="Tipo de serviço">
+          <option value="">Todos os serviços</option>
+          <option value="DEAM">Delegacia da Mulher</option>
+          <option value="DEFENSORIA">Defensoria Pública</option>
+          <option value="CRAM">Centro de Referência</option>
+          <option value="CREAS">CREAS</option>
+          <option value="SAUDE">Saúde</option>
+          <option value="ONG">Rede de apoio</option>
+        </select>
+        <button class="btn btn--pri" type="submit">Buscar</button>
+      </form>
+      <div id="api-resultado" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALERIA (fotos da Sol) ========== -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker">Galeria</span>
+      <h2>Material visual do projeto</h2>
+      <p class="lead">Série fotográfica criada para a Rede de Apoio, em diferentes formatos e enquadramentos para cada uso: capa, retrato, paisagem e campanha. Clique para ampliar.</p>
+    </div>
+    <div class="galeria">
+      <figure class="foto g1 rev" data-leg="Panorama: o espaço de apoio de forma integrada e humanizada, com luz suave, plantas e livros. Usado como capa do site."><img src="img/capa.jpg" alt="Sala de acolhimento ampla com roda de conversa" loading="lazy"></figure>
+      <figure class="foto g2 rev rev-d1" data-leg="Close-up: emoção, olhar de empatia e conexão direta entre as mulheres no grupo de apoio."><img src="img/acolhimento.jpg" alt="Mulheres abraçadas em roda de apoio" loading="lazy"></figure>
+      <figure class="foto g3 rev rev-d2" data-leg="Cena de conscientização sobre violência psicológica dentro de casa."><img src="img/sinais.jpg" alt="Homem grita com mulher sentada em uma sala" loading="lazy"></figure>
+      <figure class="foto g4 rev" data-leg="Campanha: Lei Maria da Penha, esclarecimento e informação. Conheça seus direitos e busque ajuda especializada."><img src="img/campanha.jpg" alt="Cartaz da campanha Lei Maria da Penha" loading="lazy" style="object-position:50% 40%"></figure>
+    </div>
+    <p class="nota">Imagens: Solange Maria Morais e Julia Maria Morais Cardoso (frente de Imagens).</p>
+  </div>
+</section>
+
+<!-- ========== CANAIS DE AJUDA ========== -->
+<section id="ajuda" class="alt">
+  <div class="wrap">
+    <div class="rev center">
+      <span class="kicker">Canais de ajuda</span>
+      <h2>Serviços gratuitos de atendimento</h2>
+    </div>
+    <div class="cards">
+      <div class="card canal rev"><span class="n">180</span><div><h3>Central de Atendimento à Mulher</h3><p>Orientação e denúncia. Gratuito, sigiloso, 24 horas.</p></div></div>
+      <div class="card canal rev rev-d1"><span class="n">190</span><div><h3>Polícia Militar</h3><p>Emergência e risco imediato.</p></div></div>
+      <div class="card canal rev rev-d2"><span class="n">192</span><div><h3>SAMU</h3><p>Atendimento médico de urgência.</p></div></div>
+      <div class="card canal rev"><span class="n">100</span><div><h3>Disque Direitos Humanos</h3><p>Quando há risco para crianças e outras pessoas.</p></div></div>
+      <div class="card canal rev rev-d1"><span class="n">188</span><div><h3>CVV</h3><p>Apoio emocional, 24 horas.</p></div></div>
+      <div class="card canal rev rev-d2"><span class="n">📍</span><div><h3>Na sua região</h3><p>Delegacia da Mulher (DDM), Defensoria Pública, CRAM/CREAS, Casa da Mulher Brasileira e Conselho Tutelar.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRABALHOS DOS ALUNOS ========== -->
+<section id="trabalhos">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker">Projetão IA · Turma manhã</span>
+      <h2>Trabalhos dos alunos</h2>
+      <p class="lead">Cada entrega da turma em um só lugar. Os arquivos ficam na pasta de cada aluno, ao lado deste site.</p>
+    </div>
+    <div class="trabalhos" id="lista-trabalhos"></div>
+  </div>
+</section>
+
+<!-- ========== EQUIPE (sem WhatsApp) ========== -->
+<section id="equipe" class="alt">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker">Equipe</span>
+      <h2>Quem desenvolve a plataforma</h2>
+      <p class="lead">Seis frentes de trabalho, com orientação do Prof. Álvaro Machado Júnior.</p>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="equipe" id="lista-equipe"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <p class="projeto">Plataforma de Acolhimento, Orientação e Resposta Rápida no Combate à Violência Contra a Mulher</p>
+        <p>Projeto acadêmico do curso de Inteligência Artificial · OSC AFAGO · turma manhã.</p>
+      </div>
+      <div><h4>Navegação</h4><ul><li><a href="#orientacao">Orientação</a></li><li><a href="#chatbot">M.A.R.I.A.</a></li><li><a href="#trabalhos">Trabalhos</a></li><li><a href="#equipe">Equipe</a></li></ul></div>
+      <div><h4>Emergência</h4><ul><li><a href="tel:190">190 · Polícia Militar</a></li><li><a href="tel:180">180 · Central da Mulher</a></li><li><a href="tel:192">192 · SAMU</a></li></ul></div>
+    </div>
+    <div class="linha">
+      <span>© <span id="ano">2026</span> · Projeto acadêmico · Este site não substitui atendimento profissional.</span>
+      <span>Orientação: Prof. Álvaro Machado Júnior</span>
+    </div>
+  </div>
+</footer>
+
+<button class="topo" id="topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+<div class="caixa-luz" id="luz" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button aria-label="Fechar" id="luz-x">×</button><img alt=""><p></p></div>
+
+<script src="js/script.js?v=3"></script>
+</body>
+</html>

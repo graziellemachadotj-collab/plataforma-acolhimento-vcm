@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Plataforma de Acolhimento, Orientação e Resposta Rápida no Combate à Violência Contra a Mulher">
+<title>Plataforma de Acolhimento | Combate à Violência Contra a Mulher</title>
+<!--
+  ============================================================
+  ESQUELETO DO SITE — versão inicial (front-end)
+  Para adicionar conteúdo, procure os comentários "TODO".
+  Imagens: coloque os arquivos na pasta /img com estes nomes:
+    img/capa.jpg       → imagem de capa (horizontal, ~1920x1080)
+    img/retrato.jpg    → foto retrato (vertical, 3:4)
+    img/paisagem.jpg   → foto paisagem (horizontal, 16:9)
+    img/lifestyle.jpg  → foto lifestyle (quadrada, 1:1)
+  Enquanto a imagem não existir, aparece um quadro de espaço reservado.
+  ============================================================
+-->
+<style>
+  :root{
+    --roxo:#6b2fa3; --roxo-esc:#3d1a5e; --lilas:#efe6f8; --rosa:#d94f8c;
+    --txt:#2a2230; --mut:#6e6478; --bg:#fbf9fd; --branco:#fff; --linha:#e3d9ee;
+    --raio:12px; --max:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--txt);background:var(--bg);line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:var(--roxo)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+  section{padding:64px 0}
+  h2{font-size:clamp(1.5rem,3vw,2rem);color:var(--roxo-esc);margin-bottom:8px}
+  .lead{color:var(--mut);max-width:680px;margin-bottom:32px}
+  .todo{border:2px dashed var(--linha);border-radius:var(--raio);padding:20px;color:var(--mut);background:var(--branco);font-size:.95rem}
+
+  /* ---------- Saída rápida (segurança da usuária) ---------- */
+  .saida{position:fixed;right:16px;bottom:16px;z-index:50;background:var(--rosa);color:#fff;border:none;border-radius:999px;padding:12px 20px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+  .saida:hover{filter:brightness(1.08)}
+
+  /* ---------- Topo ---------- */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--linha)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .logo{font-weight:800;color:var(--roxo);text-decoration:none;font-size:1.05rem}
+  .menu{display:flex;gap:20px;list-style:none}
+  .menu a{text-decoration:none;color:var(--txt);font-size:.95rem}
+  .menu a:hover{color:var(--roxo)}
+  .burger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--roxo)}
+  @media(max-width:820px){
+    .burger{display:block}
+    .menu{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;padding:16px;border-bottom:1px solid var(--linha)}
+    .menu.aberto{display:flex}
+  }
+
+  /* ---------- Fotos (espaços reservados) ---------- */
+  .foto{position:relative;background:var(--lilas);border-radius:var(--raio);overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .foto img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .foto .rotulo{color:var(--roxo);font-weight:600;text-align:center;font-size:.9rem;padding:8px}
+  .foto .rotulo small{display:block;font-weight:400;color:var(--mut)}
+  .foto--retrato{aspect-ratio:3/4}
+  .foto--paisagem{aspect-ratio:16/9}
+  .foto--lifestyle{aspect-ratio:1/1}
+
+  /* ---------- Capa ---------- */
+  .capa{position:relative;min-height:78vh;display:flex;align-items:center;color:#fff;border-radius:0}
+  .capa .foto{position:absolute;inset:0;border-radius:0;background:linear-gradient(135deg,var(--roxo-esc),var(--roxo))}
+  .capa .foto .rotulo{color:rgba(255,255,255,.6);position:absolute;top:16px;right:16px}
+  .capa::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(40,15,60,.85),rgba(40,15,60,.3))}
+  .capa .wrap{position:relative;z-index:2;width:100%}
+  .capa h1{font-size:clamp(1.8rem,4.5vw,3.2rem);line-height:1.15;max-width:760px;margin-bottom:16px}
+  .capa p{max-width:600px;font-size:1.1rem;opacity:.92;margin-bottom:28px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:700}
+  .btn--pri{background:var(--rosa);color:#fff}
+  .btn--sec{border:2px solid #fff;color:#fff}
+
+  /* ---------- Faixa de emergência ---------- */
+  .emerg{background:var(--roxo-esc);color:#fff;padding:20px 0}
+  .emerg .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:center;align-items:center;text-align:center}
+  .emerg strong{font-size:1.4rem;color:#ffd0e4}
+
+  /* ---------- Grades ---------- */
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:var(--branco);border:1px solid var(--linha);border-radius:var(--raio);padding:24px}
+  .card h3{color:var(--roxo);margin-bottom:8px;font-size:1.1rem}
+  @media(max-width:820px){.duas{grid-template-columns:1fr}}
+
+  .galeria{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:16px;align-items:start}
+  @media(max-width:820px){.galeria{grid-template-columns:1fr}}
+
+  /* ---------- Chatbot ---------- */
+  .chat{max-width:520px;background:var(--branco);border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden}
+  .chat-topo{background:var(--roxo);color:#fff;padding:14px 18px;font-weight:700}
+  .chat-corpo{min-height:220px;padding:18px;display:flex;flex-direction:column;gap:10px}
+  .msg{background:var(--lilas);padding:10px 14px;border-radius:12px;max-width:85%;font-size:.95rem}
+  .chat-form{display:flex;border-top:1px solid var(--linha)}
+  .chat-form input{flex:1;border:none;padding:14px;font-size:1rem;outline:none}
+  .chat-form button{border:none;background:var(--roxo);color:#fff;padding:0 20px;font-weight:700;cursor:pointer}
+
+  /* ---------- Equipe ---------- */
+  .equipe{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .membro{background:var(--branco);border:1px solid var(--linha);border-left:4px solid var(--roxo);border-radius:var(--raio);padding:18px}
+  .membro .funcao{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--roxo);padding:3px 10px;border-radius:999px;margin-bottom:8px}
+  .membro[data-area="orientacao"]{border-left-color:var(--rosa)}
+  .membro[data-area="orientacao"] .funcao{background:var(--rosa)}
+  .membro h3{font-size:1.05rem;margin-bottom:4px}
+  .membro p{color:var(--mut);font-size:.9rem;margin-bottom:8px}
+  .membro a{font-size:.9rem;text-decoration:none;font-weight:600}
+
+  /* ---------- Rodapé ---------- */
+  footer{background:var(--roxo-esc);color:#e9dcf5;padding:40px 0 24px;margin-top:32px}
+  footer .projeto{font-size:1.1rem;font-weight:700;color:#fff;max-width:720px;margin-bottom:8px}
+  footer .linha{border-top:1px solid rgba(255,255,255,.15);margin-top:24px;padding-top:16px;font-size:.85rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+  /* ---------- Melhorias ---------- */
+  :focus-visible{outline:3px solid var(--rosa);outline-offset:3px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--roxo);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
+  .skip:focus{left:8px}
+  section[id]{scroll-margin-top:72px}
+  h2::after{content:"";display:block;width:48px;height:4px;border-radius:4px;background:var(--rosa);margin-top:8px}
+  .btn{transition:transform .2s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+  .btn--sec:hover{background:rgba(255,255,255,.15)}
+  .menu a{position:relative;padding:4px 0}
+  .menu a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--rosa);transition:width .25s}
+  .menu a:hover::after,.menu a.ativo::after{width:100%}
+  .menu a.ativo{color:var(--roxo);font-weight:600}
+  .card{transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(107,47,163,.12)}
+  .emerg strong a{color:inherit;text-decoration:none}
+  .emerg a.tel{background:rgba(255,255,255,.1);padding:6px 14px;border-radius:999px;text-decoration:none;color:#fff}
+  .emerg a.tel:hover{background:rgba(255,255,255,.2)}
+
+  /* Equipe: cartões com avatar e botão do WhatsApp */
+  .membro{position:relative;display:flex;flex-direction:column;align-items:flex-start;transition:transform .2s,box-shadow .2s;padding-right:72px}
+  .membro:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(107,47,163,.14)}
+  .avatar{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--lilas);color:var(--roxo);font-weight:800;font-size:.95rem;letter-spacing:.02em}
+  .membro[data-area="orientacao"] .avatar{background:#fbe3ee;color:var(--rosa)}
+  .membro p{flex:1}
+  .wa{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 4px 12px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s,background .2s;margin-top:4px}
+  .wa:hover{background:#1ebe5a;transform:scale(1.1);box-shadow:0 6px 18px rgba(37,211,102,.5)}
+  .wa:active{transform:scale(.97)}
+
+  /* Voltar ao topo */
+  .topo{position:fixed;left:16px;bottom:16px;z-index:50;width:44px;height:44px;border-radius:50%;border:none;background:var(--roxo);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .25s}
+  .topo.visivel{opacity:1;pointer-events:auto}
+
+  /* Aparecer ao rolar */
+  .rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rev.on{opacity:1;transform:none}
+
+  @media(max-width:820px){section{padding:48px 0}}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+    .rev{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#sobre">Pular para o conteúdo</a>
+
+<!-- Botão de saída rápida: abre um site neutro e substitui esta página no histórico -->
+<button class="saida" onclick="window.location.replace('https://www.google.com/search?q=previs%C3%A3o+do+tempo')" title="Sair rapidamente deste site">Sair rápido ✕</button>
+
+<header>
+  <nav class="wrap nav">
+    <a href="#inicio" class="logo">Plataforma de Acolhimento</a>
+    <button class="burger" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false" onclick="document.getElementById('menu').classList.toggle('aberto');this.setAttribute('aria-expanded',document.getElementById('menu').classList.contains('aberto'))">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#orientacao">Orientação</a></li>
+      <li><a href="#chatbot">Chatbot</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#ajuda">Canais de ajuda</a></li>
+      <li><a href="#equipe">Equipe</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+<!-- ========== FOTO 4: CAPA ========== -->
+<section class="capa" id="inicio">
+  <figure class="foto">
+    <img src="img/capa.jpg" alt="Imagem de capa do projeto" onerror="this.remove()">
+    <span class="rotulo">Imagem de capa<small>img/capa.jpg</small></span>
+  </figure>
+  <div class="wrap">
+    <h1>Você não está sozinha.</h1>
+    <!-- TODO (Imagens/Readme): texto de apresentação da capa -->
+    <p>Acolhimento, orientação e resposta rápida para mulheres em situação de violência.</p>
+    <div class="btns">
+      <a href="#chatbot" class="btn btn--pri">Conversar agora</a>
+      <a href="#ajuda" class="btn btn--sec">Canais de ajuda</a>
+    </div>
+  </div>
+</section>
+
+<!-- Faixa de emergência -->
+<div class="emerg">
+  <div class="wrap">
+    <span>Em perigo agora? <a class="tel" href="tel:190">Ligue <strong>190</strong></a></span>
+    <span>Central de Atendimento à Mulher: <a class="tel" href="tel:180"><strong>180</strong></a></span>
+  </div>
+</div>
+
+<!-- ========== SOBRE + FOTO 1: RETRATO ========== -->
+<section id="sobre">
+  <div class="wrap duas rev">
+    <div>
+      <h2>Sobre o projeto</h2>
+      <!-- TODO (Readme): descrição do projeto, objetivo e público -->
+      <div class="todo">Conteúdo a ser adicionado: descrição do projeto, objetivos e público atendido.</div>
+    </div>
+    <figure class="foto foto--retrato">
+      <img src="img/retrato.jpg" alt="Foto retrato" onerror="this.remove()">
+      <span class="rotulo">Foto retrato<small>img/retrato.jpg · 3:4</small></span>
+    </figure>
+  </div>
+</section>
+
+<!-- ========== ORIENTAÇÃO ========== -->
+<section id="orientacao" style="background:var(--branco)">
+  <div class="wrap rev">
+    <h2>Orientação</h2>
+    <p class="lead">Informações para reconhecer a violência e saber como agir.</p>
+    <!-- TODO (Readme/Chatbot): preencher cada card com o conteúdo definido pelo grupo -->
+    <div class="cards">
+      <article class="card"><h3>Tipos de violência</h3><p class="todo">Conteúdo a ser adicionado.</p></article>
+      <article class="card"><h3>Como pedir ajuda</h3><p class="todo">Conteúdo a ser adicionado.</p></article>
+      <article class="card"><h3>Seus direitos</h3><p class="todo">Conteúdo a ser adicionado.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CHATBOT + FOTO 3: LIFESTYLE ========== -->
+<section id="chatbot">
+  <div class="wrap duas rev">
+    <div>
+      <h2>Chatbot de apoio</h2>
+      <p class="lead">Converse de forma sigilosa e receba orientação.</p>
+      <!-- TODO (Chatbot / Back-End): conectar esta janela à lógica do chatbot -->
+      <div class="chat" id="chat">
+        <div class="chat-topo">Assistente de acolhimento</div>
+        <div class="chat-corpo" id="chat-corpo">
+          <div class="msg">Olá! Estou aqui para ajudar. Como posso te apoiar hoje?</div>
+        </div>
+        <form class="chat-form" onsubmit="event.preventDefault()">
+          <input type="text" placeholder="Digite sua mensagem..." aria-label="Mensagem" disabled>
+          <button type="submit" disabled>Enviar</button>
+        </form>
+      </div>
+    </div>
+    <figure class="foto foto--lifestyle">
+      <img src="img/lifestyle.jpg" alt="Foto lifestyle" onerror="this.remove()">
+      <span class="rotulo">Foto lifestyle<small>img/lifestyle.jpg · 1:1</small></span>
+    </figure>
+  </div>
+</section>
+
+<!-- ========== GALERIA + FOTO 2: PAISAGEM ========== -->
+<section id="galeria" style="background:var(--branco)">
+  <div class="wrap rev">
+    <h2>Galeria</h2>
+    <p class="lead">Conteúdo visual do projeto.</p>
+    <!-- TODO (Imagens): as mesmas fotos ou outras, conforme curadoria -->
+    <div class="galeria">
+      <figure class="foto foto--retrato"><img src="img/retrato.jpg" alt="" onerror="this.remove()"><span class="rotulo">Retrato</span></figure>
+      <figure class="foto foto--paisagem"><img src="img/paisagem.jpg" alt="Foto paisagem" onerror="this.remove()"><span class="rotulo">Foto paisagem<small>img/paisagem.jpg · 16:9</small></span></figure>
+      <figure class="foto foto--lifestyle"><img src="img/lifestyle.jpg" alt="" onerror="this.remove()"><span class="rotulo">Lifestyle</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CANAIS DE AJUDA ========== -->
+<section id="ajuda">
+  <div class="wrap rev">
+    <h2>Canais de ajuda</h2>
+    <p class="lead">Serviços gratuitos de atendimento.</p>
+    <!-- TODO: incluir delegacias, centros de referência e outros serviços da região -->
+    <div class="cards">
+      <article class="card"><h3>Ligue 180</h3><p>Central de Atendimento à Mulher. Gratuito, 24 horas.</p></article>
+      <article class="card"><h3>Ligue 190</h3><p>Polícia Militar, para situações de emergência.</p></article>
+      <article class="card"><h3>Outros serviços</h3><p class="todo">Conteúdo a ser adicionado.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EQUIPE ========== -->
+<section id="equipe" style="background:var(--branco)">
+  <div class="wrap rev">
+    <h2>Equipe do projeto</h2>
+    <p class="lead">Quem desenvolve a plataforma.</p>
+    <div class="equipe">
+
+      <article class="membro" data-area="orientacao">
+        <span class="avatar" aria-hidden="true">ÁJ</span>
+        <span class="funcao">Orientação / Professor</span>
+        <h3>Álvaro Machado Júnior</h3>
+        <p>Professor orientador especializado em Inteligência Artificial e Aprendizagem Interativa.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">DS</span>
+        <span class="funcao">Back-End</span>
+        <h3>Dayene Souza Silva</h3>
+        <p>Responsável pela estruturação do back-end e otimização das consultas de dados.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">JV</span>
+        <span class="funcao">Back-End</span>
+        <h3>Jessica Paola Miranda Vitorino</h3>
+        <p>Atua na arquitetura do banco de dados e na robustez das funcionalidades.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">MS</span>
+        <span class="funcao">Front-End</span>
+        <h3>Miguel Felipi da Silva</h3>
+        <p>Desenvolve interfaces responsivas focadas na melhor experiência da usuária.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">PR</span>
+        <span class="funcao">Chatbot</span>
+        <h3>Priscila Rodrigues</h3>
+        <p>Responsável pelo desenvolvimento da lógica e estruturação do chatbot de apoio.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">BS</span>
+        <span class="funcao">Chatbot</span>
+        <h3>Brayan da Cruz Souza</h3>
+        <p>Atua na automação de fluxos e na integração do suporte técnico do chatbot.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">LV</span>
+        <span class="funcao">Chatbot</span>
+        <h3>Lavinia Rodrigues Vieira</h3>
+        <p>Focada na implementação de funcionalidades inteligentes e na experiência do usuário.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">JC</span>
+        <span class="funcao">Imagens</span>
+        <h3>Julia Maria Morais Cardoso</h3>
+        <p>Responsável pela criação, geração e curadoria de todo o conteúdo visual do projeto.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">SM</span>
+        <span class="funcao">Imagens</span>
+        <h3>Solange Maria Morais</h3>
+        <p>Colabora no processamento e tratamento das imagens integradas ao sistema.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">HM</span>
+        <span class="funcao">Readme</span>
+        <h3>Helloa Sousa Monteiro</h3>
+        <p>Gerencia a documentação técnica e organiza o repositório do projeto.</p>
+      </article>
+
+      <article class="membro">
+        <span class="avatar" aria-hidden="true">TS</span>
+        <span class="funcao">Readme</span>
+        <h3>Talita Monteiro dos Santos</h3>
+        <p>Elabora guias técnicos e mantém o registro detalhado das funcionalidades.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="projeto">Plataforma de Acolhimento, Orientação e Resposta Rápida no Combate à Violência Contra a Mulher</p>
+    <p>Em caso de emergência, ligue 190. Central de Atendimento à Mulher: 180.</p>
+    <div class="linha">
+      <span>© <span id="ano">2026</span> · Projeto acadêmico</span>
+      <span>Orientação: Prof. Álvaro Machado Júnior</span>
+    </div>
+  </div>
+</footer>
+
+<button class="topo" id="topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  // Fecha o menu mobile ao clicar em um link
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => { document.getElementById('menu').classList.remove('aberto'); document.querySelector('.burger').setAttribute('aria-expanded','false'); }));
+  // Botão voltar ao topo
+  const topo = document.getElementById('topo');
+  topo.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+  addEventListener('scroll', () => topo.classList.toggle('visivel', scrollY > 600), {passive:true});
+  // Animação ao rolar + destaque do menu
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), {threshold:.12});
+    document.querySelectorAll('.rev').forEach(el => io.observe(el));
+    const links = [...document.querySelectorAll('.menu a')];
+    const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.classList.toggle('ativo', l.getAttribute('href') === '#' + e.target.id)); }), {rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(l => { const s = document.querySelector(l.getAttribute('href')); if (s) so.observe(s); });
+  } else { document.querySelectorAll('.rev').forEach(el => el.classList.add('on')); }
+  // Tecla ESC também aciona a saída rápida
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelector('.saida').click(); });
+</script>
+</body>
+</html>
