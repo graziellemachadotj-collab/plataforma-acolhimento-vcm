@@ -136,7 +136,8 @@ if('IntersectionObserver' in window){
 
 /* ---------- Teste ao vivo da API (rodar.bat na pasta da Dayene) ---------- */
 // No computador (index.html aberto direto ou localhost) usa a API local.
-// A API pública está em finalização: quando for publicada, informe o endereço em API_PUBLICA.
+// No site oficial, a API roda em servidor local seguro mantido pelo Prof. Álvaro Machado Júnior.
+// O endereço não é publicado neste repositório: informe o seu em API_PUBLICA.
 const API_PUBLICA = '';
 const LOCAL = location.protocol === 'file:' || ['localhost','127.0.0.1'].includes(location.hostname);
 const API = (LOCAL ? 'http://localhost:8000' : API_PUBLICA) + '/api/v1';
@@ -144,7 +145,7 @@ const apiStatus = document.getElementById('api-status');
 async function verificarApi(){
   if (!LOCAL && !API_PUBLICA) {
     apiStatus.className = 'api-status off';
-    apiStatus.querySelector('b').textContent = 'API em finalização';
+    apiStatus.querySelector('b').textContent = 'API disponível no site oficial';
     return false;
   }
   try{
@@ -174,7 +175,7 @@ document.getElementById('api-form').addEventListener('submit', async ev => {
   if (!(await verificarApi())) {
     out.innerHTML = LOCAL
       ? '<div class="api-msg">A API está desligada. Dê dois cliques em <b>rodar.bat</b> na pasta da Dayene. Enquanto isso, ligue <b>180</b> para saber os serviços da sua região.</div>'
-      : '<div class="api-msg">A busca de serviços está em finalização. Enquanto isso, ligue <b>180</b> (gratuito, 24h) para saber os serviços da sua região. Em perigo, ligue <b>190</b>.</div>';
+      : '<div class="api-msg">Esta cópia não tem o endereço da API. Teste a busca no site oficial (acolhimento.prof.alvaromjunior.com) ou ligue <b>180</b> (gratuito, 24h) para saber os serviços da sua região. Em perigo, ligue <b>190</b>.</div>';
     return;
   }
   const q = new URLSearchParams({cep: cepInput.value, limite: 6});

@@ -5,6 +5,8 @@ Orientação: **Prof. Álvaro Machado Júnior**
 
 🌐 **Site:** [acolhimento.prof.alvaromjunior.com](https://acolhimento.prof.alvaromjunior.com)
 
+> 🔒 **Sobre a API:** a API **funciona no site publicado**. Ela roda em um **servidor local seguro, desenvolvido e mantido pelo Prof. Álvaro Machado Júnior**. Por segurança, o endereço e a configuração desse servidor **não** são publicados neste repositório. O código da API está aqui completo e pode ser rodado em qualquer computador (veja abaixo).
+
 > **Em perigo agora, ligue 190.** Central de Atendimento à Mulher: **180** (gratuito, sigiloso, 24h).
 
 ---
@@ -33,7 +35,7 @@ Uma plataforma web que **acolhe, orienta e aponta caminhos**:
 | Segurança | Hash scrypt para senhas, cifra Fernet para contatos e relatos, SHA-256 para integridade, CORS restrito, limite de pedidos, cabeçalhos de segurança |
 | Qualidade | Pytest: 20 testes automatizados |
 | IA | Engenharia de prompt para o chatbot de acolhimento |
-| Publicação | GitHub e Cloudflare Pages |
+| Publicação | GitHub, Cloudflare Pages (site) e servidor local seguro (API), mantido pelo Prof. Álvaro Machado Júnior |
 
 ## Estrutura do repositório
 
@@ -66,10 +68,11 @@ No Windows também dá para usar dois cliques em `rodar.bat`. Mais detalhes est�
 | Item | Status |
 |---|---|
 | Site responsivo publicado | ✅ Concluído |
-| API com rotas públicas e protegidas, testes automatizados | ✅ Concluído (roda localmente) |
+| API com rotas públicas e protegidas, testes automatizados | ✅ Concluído |
+| API funcionando no site, em servidor local seguro do Prof. Álvaro Machado Júnior | ✅ Em operação |
 | Banco com PostGIS e criptografia | ✅ Concluído |
 | Prompt e fluxos do chatbot | ✅ Concluído |
-| **Publicação da API em hospedagem definitiva** | 🚧 Em finalização |
+| Migração da API para hospedagem definitiva na nuvem | 🚧 Em finalização |
 | Cadastro dos serviços reais, conferidos em fonte oficial | 🔜 Próxima etapa |
 | Envio automático do alerta (SMS ou e-mail) e revisão por profissionais da rede de proteção | 🔜 Próxima etapa |
 
