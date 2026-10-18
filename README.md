@@ -103,7 +103,7 @@ A turma trabalhou como uma equipe de produto, dividida em cinco frentes, e cada 
 
 - Nenhum telefone ou contato pessoal da equipe é publicado neste repositório.
 - A API não registra IP, navegador nem conteúdo, e o CEP pesquisado não é salvo.
-- Banco local, chaves de criptografia e ambientes virtuais ficam fora do repositório (`.gitignore`).
+- Por segurança, os arquivos de configuração e de infraestrutura do servidor foram mantidos em ambiente privado. Este repositório traz o código completo do projeto, pronto para estudo e execução local.
 
 ---
 
