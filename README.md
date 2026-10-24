@@ -1,7 +1,12 @@
 # Plataforma de Acolhimento, Orientação e Resposta Rápida
 
 **Combate à violência contra a mulher · Projetão IA · OSC AFAGO · turma manhã · 2026**
-Orientação: **Prof. Álvaro Machado Júnior**
+Orientação: **Prof. Álvaro Machado Júnior** · GitHub: @profalvaromjunior
+
+👤 **Fork de Grazielle de Lima Oliveira Machado** — integrante da equipe.
+Minha participação: desenvolvi a **Rede de Apoio e Proteção**, uma apresentação web interativa feita em HTML, CSS e JavaScript que mostra onde e como buscar ajuda.
+
+📌 Repositório original da equipe: https://github.com/profalvaromjunior/plataforma-acolhimento-vcm
 
 🌐 **Site:** [acolhimento.prof.alvaromjunior.com](https://acolhimento.prof.alvaromjunior.com)
 
